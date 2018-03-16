@@ -20,6 +20,7 @@
 - [Apache Kafka](https://www.amazon.com/Apache-Kafka-Nishant-Garg/dp/1782167935)
 - [Kafka: The Definitive Guide: Real-Time Data and Stream Processing at Scale](https://www.confluent.io/resources/kafka-the-definitive-guide/)
 - [Apache Kafka 1.0 Cookbook](https://www.amazon.com/Apache-Kafka-1-0-Cookbook-distributed/dp/1787286843/ref=sr_1_7?ie=UTF8&qid=1521239377&sr=8-7&keywords=kafka+apache)
+- [Apache Kafka Tutorial](https://github.com/hpang123/Kafka-Fearless/blob/master/apache_kafka_tutorial.pdf)
 
 ## Useful Resources
 - [Quickstart - Apache Kafka](https://kafka.apache.org/quickstart)
