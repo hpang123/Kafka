@@ -29,6 +29,7 @@
 - [Apache Kafka Tutorial on Turtorialspoint](https://www.tutorialspoint.com/apache_kafka/index.htm)
 - [Apache Kafka Tutorial on How to Program](https://howtoprogram.xyz/big-data-technologies/apache-kafka-tutorial/)
 - [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
+- [Apache Kafka for beginners](https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html)
 - [Introducing the Kafka Consumer on confluent](https://www.confluent.io/blog/tutorial-getting-started-with-the-new-apache-kafka-0-9-consumer-client/)
 - [Intro to Apache Kafka with Spring](http://www.baeldung.com/spring-kafka)
 - [Getting started with NodeJS and Kafka](https://nodewebapps.com/2017/11/04/getting-started-with-nodejs-and-kafka/)
