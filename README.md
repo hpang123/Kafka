@@ -25,7 +25,7 @@
 ## Useful Resources
 - [Quickstart - Apache Kafka](https://kafka.apache.org/quickstart)
 - [Apache Kafka Documentation](http://kafka.apache.org/documentation/)
-- [Kafaka Tutorial on cloudurable](http://cloudurable.com/blog/kafka-tutorial-v1/index.html)
+- [Kafaka Tutorial on Cloudurable](http://cloudurable.com/blog/kafka-tutorial-v1/index.html)
 - [Apache Kafka Tutorial on Turtorialspoint](https://www.tutorialspoint.com/apache_kafka/index.htm)
 - [Apache Kafka Tutorial on How to Program](https://howtoprogram.xyz/big-data-technologies/apache-kafka-tutorial/)
 - [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
@@ -35,5 +35,6 @@
 - [Getting started with NodeJS and Kafka](https://nodewebapps.com/2017/11/04/getting-started-with-nodejs-and-kafka/)
 - [Kafka Cheat Sheet 1](https://github.com/Landoop/kafka-cheat-sheet)
 - [Kafka Cheat Sheet 2](http://ronnieroller.com/kafka/cheat-sheet)
+- [Kafka Examples on Confluentinc](https://github.com/confluentinc/examples)
 
 
