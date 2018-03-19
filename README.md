@@ -32,9 +32,14 @@
 - [Apache Kafka for beginners](https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html)
 - [Introducing the Kafka Consumer on confluent](https://www.confluent.io/blog/tutorial-getting-started-with-the-new-apache-kafka-0-9-consumer-client/)
 - [Intro to Apache Kafka with Spring](http://www.baeldung.com/spring-kafka)
+- [Kafka, Avro Serialization, and the Schema Registry](https://dzone.com/articles/kafka-avro-serialization-and-the-schema-registry)
+- [Avro Introduction for Big Data and Data Streaming Architectures](http://cloudurable.com/blog/avro/index.html)
 - [Getting started with NodeJS and Kafka](https://nodewebapps.com/2017/11/04/getting-started-with-nodejs-and-kafka/)
 - [Kafka Cheat Sheet 1](https://github.com/Landoop/kafka-cheat-sheet)
 - [Kafka Cheat Sheet 2](http://ronnieroller.com/kafka/cheat-sheet)
 - [Kafka Examples on Confluentinc](https://github.com/confluentinc/examples)
+- [Spring Kafka - Consumer Producer Example](https://www.codenotfound.com/spring-kafka-consumer-producer-example.html)
+- [Spring Kafka - Apache Avro Serializer Deserialzer Example](https://www.codenotfound.com/spring-kafka-apache-avro-serializer-deserializer-example.html)
+
 
 
