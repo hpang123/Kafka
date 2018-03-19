@@ -38,6 +38,7 @@
 - [Kafka Cheat Sheet 1](https://github.com/Landoop/kafka-cheat-sheet)
 - [Kafka Cheat Sheet 2](http://ronnieroller.com/kafka/cheat-sheet)
 - [Kafka Examples on Confluentinc](https://github.com/confluentinc/examples)
+- [Kafka Examples By Gwen](https://github.com/gwenshap/kafka-examples)
 - [Spring Kafka - Consumer Producer Example](https://www.codenotfound.com/spring-kafka-consumer-producer-example.html)
 - [Spring Kafka - Apache Avro Serializer Deserialzer Example](https://www.codenotfound.com/spring-kafka-apache-avro-serializer-deserializer-example.html)
 
