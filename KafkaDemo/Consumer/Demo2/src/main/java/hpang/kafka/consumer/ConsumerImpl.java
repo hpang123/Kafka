@@ -1,18 +1,21 @@
 package hpang.kafka.consumer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.consumer.OffsetAndMetadata;
 import org.apache.kafka.clients.consumer.OffsetCommitCallback;
 import org.apache.kafka.common.TopicPartition;
+import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +29,9 @@ public class ConsumerImpl implements Consumer {
 
 	@Override
 	public void start() {
+
+		Map<TopicPartition, OffsetAndMetadata> currentOffsets = new HashMap<>();
+
 		/*
 		 * Or use Collections.singletonList("test-topic") for single topic
 		 */
@@ -82,15 +88,60 @@ public class ConsumerImpl implements Consumer {
 
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(consumerProperties);
 
+		class HandleRebalance implements ConsumerRebalanceListener {
+			/*
+			 * Called after partitions have been reassigned to the broker, but
+			 * before the consumer starts consuming messages.
+			 */
+			public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
+				for (TopicPartition partition : partitions) {
+					// consumer.seek(partition, getOffsetFromDB(partition));
+				}
+			}
+
+			/*
+			 * Called before the rebalancing starts and after the consumer
+			 * stopped consuming messages. This is where you want to commit
+			 * offsets, so whoever gets this partition next will know where to
+			 * start.
+			 */
+			public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
+				log.info("Lost partitions in rebalance. Committing currentoffsets:" + currentOffsets);
+				consumer.commitSync(currentOffsets);
+			}
+		}
+
 		/*
 		 * We can also call subscribe with a regular expression:
 		 * consumer.subscribe("test.*"); Most commonly used in applications that
 		 * replicate data between Kafka and another system.
 		 */
-		consumer.subscribe(topicList);
+		consumer.subscribe(topicList, new HandleRebalance());
 		log.info("Subscribed to topic " + topic);
 
-		Map<TopicPartition, OffsetAndMetadata> currentOffsets = new HashMap<>();
+		final Thread mainThread = Thread.currentThread();
+
+		/*
+		 * consumer.wakeup() is the only consumer method that is safe to call from a different thread. 
+		 * Calling wakeup will cause poll() to exit with WakeupException, 
+		 * or if consumer.wakeup() was called while the thread was not waiting on poll, 
+		 * the exception will be thrown on the next iteration when poll() is called.
+		 */
+		Runtime.getRuntime().addShutdownHook(new Thread() {
+			public void run() {
+				System.out.println("Starting exit...");
+				/*
+				 * Another thread calling wakeup will cause poll to throw a WakeupException.
+				 */
+				consumer.wakeup();
+				try {
+					mainThread.join();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
 		int count = 0;
 
 		try {
@@ -110,16 +161,17 @@ public class ConsumerImpl implements Consumer {
 					// do something with record...
 
 					/*
-					 * After reading each record, we update the offsets map 
-					 * with the offset of the next message we expect to process. 
-					 * This is where we’ll start reading next time we start.
+					 * After reading each record, we update the offsets map with
+					 * the offset of the next message we expect to process. This
+					 * is where we’ll start reading next time we start.
 					 */
 					currentOffsets.put(new TopicPartition(record.topic(), record.partition()),
 							new OffsetAndMetadata(record.offset() + 1, "no metadata"));
-					
+
 					// Commmit every 20 records
 					if (count % 20 == 0) {
-						// pass a map of partitions and offsets that you wish to commit.
+						// pass a map of partitions and offsets that you wish to
+						// commit.
 						consumer.commitAsync(currentOffsets, new OffsetCommitCallback() {
 							public void onComplete(Map<TopicPartition, OffsetAndMetadata> offsets, Exception e) {
 								if (e != null) {
@@ -132,6 +184,9 @@ public class ConsumerImpl implements Consumer {
 					count++;
 				}
 			}
+		} catch (WakeupException e) {
+
+			log.info("We are closing");
 		} catch (Exception ex) {
 			// TODO : Log Exception Here
 			log.error("Unexpected error", ex);
@@ -145,7 +200,7 @@ public class ConsumerImpl implements Consumer {
 				 * is committed. commitSync() will retry the commit until it
 				 * either succeeds or encounters a nonretriable failure,
 				 */
-				consumer.commitSync();
+				consumer.commitSync(currentOffsets);
 
 			} finally {
 				/*
@@ -156,6 +211,7 @@ public class ConsumerImpl implements Consumer {
 				 * heartbeats and is likely dead,
 				 */
 				consumer.close();
+				log.info("Closed consumer and we are done");
 			}
 		}
 	}
