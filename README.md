@@ -30,6 +30,7 @@
 - [Apache Kafka Tutorial on How to Program](https://howtoprogram.xyz/big-data-technologies/apache-kafka-tutorial/)
 - [Thorough Introduction to Apache Kafka](https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1)
 - [Apache Kafka for beginners](https://www.cloudkarafka.com/blog/2016-11-30-part1-kafka-for-beginners-what-is-apache-kafka.html)
+- [Kafka Tutorial: Creating Advanced Kafka Producers in Java](http://cloudurable.com/blog/kafka-tutorial-kafka-producer-advanced-java-examples/index.html)
 - [Introducing the Kafka Consumer on confluent](https://www.confluent.io/blog/tutorial-getting-started-with-the-new-apache-kafka-0-9-consumer-client/)
 - [Intro to Apache Kafka with Spring](http://www.baeldung.com/spring-kafka)
 - [Kafka, Avro Serialization, and the Schema Registry](https://dzone.com/articles/kafka-avro-serialization-and-the-schema-registry)
