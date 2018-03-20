@@ -1,4 +1,4 @@
-## Consumer Demo 1
+## Consumer Demo 2
 
 Example that demonstrates committing specified offset.
 
