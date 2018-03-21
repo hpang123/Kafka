@@ -44,6 +44,6 @@
 - [Big Data Messaging with kafka part 2](https://www.javaworld.com/article/3066873/big-data/big-data-messaging-with-kafka-part-2.html)
 - [Spring Kafka - Consumer Producer Example](https://www.codenotfound.com/spring-kafka-consumer-producer-example.html)
 - [Spring Kafka - Apache Avro Serializer Deserialzer Example](https://www.codenotfound.com/spring-kafka-apache-avro-serializer-deserializer-example.html)
-
+- [Kafka Connectors reposity](https://www.confluent.io/product/connectors/)
 
 
