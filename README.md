@@ -44,6 +44,7 @@
 - [Big Data Messaging with kafka part 2](https://www.javaworld.com/article/3066873/big-data/big-data-messaging-with-kafka-part-2.html)
 - [Spring Kafka - Consumer Producer Example](https://www.codenotfound.com/spring-kafka-consumer-producer-example.html)
 - [Spring Kafka - Apache Avro Serializer Deserialzer Example](https://www.codenotfound.com/spring-kafka-apache-avro-serializer-deserializer-example.html)
+- [How to use Apache Kafka to transform a batch pipeline into a real-time one](https://medium.com/@stephane.maarek/how-to-use-apache-kafka-to-transform-a-batch-pipeline-into-a-real-time-one-831b48a6ad85)
 - [Kafka Connectors repository](https://www.confluent.io/product/connectors/)
 
 
